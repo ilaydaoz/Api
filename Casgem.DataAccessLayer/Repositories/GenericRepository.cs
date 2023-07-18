@@ -1,5 +1,6 @@
 ﻿using Casgem.DataAccessLayer.Abstract;
 using Casgem.DataAccessLayer.Concrete;
+using Casgem.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,27 +20,33 @@ namespace Casgem.DataAccessLayer.Repositories
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+
+            _context.Remove(entity);
+            _context.SaveChanges();
         }
 
         public T GetById(int id)
         {
-            throw new NotImplementedException();
+
+            return _context.Set<T>().Find(id);
         }
 
         public List<T> GetList()
         {
-            throw new NotImplementedException();
+
+            return _context.Set<T>().ToList();
         }
 
         public void Insert(T entity)
         {
-            throw new NotImplementedException();
+            _context.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            _context.Update(entity);
+            _context.SaveChanges();
         }
     }
 }
