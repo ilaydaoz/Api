@@ -4,7 +4,7 @@ using Casgem.EntityLayer.Concrete;
 
 namespace Casgem.BusinessLayer.Concrete
 {
-    internal class ProductManager : IProductService
+    public class ProductManager : IProductService
     {
         private readonly IProductDal _productDal;
 
